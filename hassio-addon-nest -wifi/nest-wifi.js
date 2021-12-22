@@ -16,14 +16,20 @@ async function getStations(googleWifiApi) {
     device.friendlyName.includes('Pixel'),
   );
 
-  axios.post('http://supervisor/core/api/states/sensor.' + sensorName).then(
-    response => {
-      console.log('Posted Nest Wifi to Hass');
-    },
-    error => {
-      console.log(error);
-    },
-  );
+  axios
+    .post(
+      'http://supervisor/core/api/states/sensor.' + sensorName,
+      { state: sensorData.length, attributes: { data: sensorData } },
+      postReqOptions,
+    )
+    .then(
+      response => {
+        console.log('Posted Nest Wifi to Hass');
+      },
+      error => {
+        console.log(error);
+      },
+    );
 }
 
 module.exports = async options => {
@@ -34,7 +40,7 @@ module.exports = async options => {
   const googleWifiApi = new GoogleWifiApi(options.googleWifiApiKey);
   await googleWifiApi.init();
 
-  cron.schedule('*/30 * * * *', () => {
+  cron.schedule('* * * * *', () => {
     getStations(googleWifiApi);
     console.log('getStations cronjob executed at: ' + new Date());
   });
