@@ -26,7 +26,7 @@ async function getStations(googleWifiApi) {
   );
 }
 
-modules.exports = async options => {
+module.exports = async options => {
   if (!options.googleWifiApiKey) {
     console.error('No options.googleWifiApiKey provided');
     return;
