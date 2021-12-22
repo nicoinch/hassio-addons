@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-RUN apk add --no-cache nodejs-npm
+RUN apk add --no-cache npm
 WORKDIR /usr/src/app
 # Copy data for add-on
 COPY package.json .
