@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # Copy data for add-on
 COPY package.json .
 COPY index.js .
-COPY services/*.js /usr/src/app/services
+COPY nest-wifi.js .
 COPY run.sh /usr/src/app
 RUN chmod a+x /usr/src/app/run.sh
 

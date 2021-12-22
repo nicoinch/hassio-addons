@@ -1,6 +1,6 @@
 {
   "name": "Nest Wifi",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "slug": "nest_wifi",
   "description": "Provide nest wifi sensor data",
@@ -9,6 +9,6 @@
   "hassio_api": true,
   "homeassistant_api": true,
   "map": ["share:rw"],
-  "options": { "googleWifiApiKey": ["your-key"] },
-  "schema": { "googleWifiApiKey": ["match(.*)"] }
+  "options": { "googleWifiApiKey": "your-key" },
+  "schema": { "googleWifiApiKey": "match(.*)" }
 }

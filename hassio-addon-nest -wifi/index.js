@@ -1,5 +1,5 @@
 const options = require('./options');
-const nestWifi = require('./services/nest-wifi');
+const nestWifi = require('/usr/src/app/nest-wifi');
 
 (async () => {
   console.log(options);
