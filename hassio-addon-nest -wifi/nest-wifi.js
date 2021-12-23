@@ -2,34 +2,40 @@ const GoogleWifiApi = require('/usr/src/app/node_modules/google-wifi-api-node/in
 const axios = require('/usr/src/app/node_modules/axios');
 const cron = require('/usr/src/app/node_modules/node-cron');
 
-const postReqOptions = {
-  headers: { Authorization: 'Bearer ' + process.env.SUPERVISOR_TOKEN },
-};
-
-async function getStations(googleWifiApi) {
-  let sensorName = 'nest_wifi_stations';
-  let sensorData;
-
+async function getInfos(googleWifiApi) {
   const groups = await googleWifiApi.getGroups();
-  const devices = await googleWifiApi.getGroupDevices(groups.groups[0].id);
-  sensorData = devices.stations.filter(device =>
-    device.friendlyName.includes('Pixel'),
-  );
-
-  axios
-    .post(
-      'http://supervisor/core/api/states/sensor.' + sensorName,
-      { state: sensorData.length, attributes: { data: sensorData } },
-      postReqOptions,
-    )
-    .then(
-      response => {
-        console.log('Posted Nest Wifi to Hass');
+  try {
+    await axios.post(
+      'http://supervisor/core/api/states/sensor.nest_wifi_access_points',
+      {
+        state: groups.groups[0].accessPoints.length,
+        attributes: { data: groups.groups[0].accessPoints },
       },
-      error => {
-        console.log(error);
+      {
+        headers: { Authorization: 'Bearer ' + process.env.SUPERVISOR_TOKEN },
       },
     );
+    console.log('Posted Nest Wifi to Hass');
+  } catch (error) {
+    console.log('Could not send sensor status to Home Assistant', error);
+  }
+
+  const devices = await googleWifiApi.getGroupDevices(groups.groups[0].id);
+  try {
+    await axios.post(
+      'http://supervisor/core/api/states/sensor.nest_wifi_devices',
+      {
+        state: devices.stations.length,
+        attributes: { data: devices.stations },
+      },
+      {
+        headers: { Authorization: 'Bearer ' + process.env.SUPERVISOR_TOKEN },
+      },
+    );
+    console.log('Posted Nest Wifi to Hass');
+  } catch (error) {
+    console.log('Could not send sensor status to Home Assistant', error);
+  }
 }
 
 module.exports = async options => {
@@ -41,7 +47,7 @@ module.exports = async options => {
   await googleWifiApi.init();
 
   cron.schedule('* * * * *', () => {
-    getStations(googleWifiApi);
-    console.log('getStations cronjob executed at: ' + new Date());
+    getInfos(googleWifiApi);
+    console.log('getInfos cronjob executed at: ' + new Date());
   });
 };

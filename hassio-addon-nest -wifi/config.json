@@ -1,6 +1,6 @@
 {
   "name": "Nest Wifi",
-  "version": "0.0.7",
+  "version": "0.0.13",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "slug": "nest_wifi",
   "description": "Provide nest wifi sensor data",
