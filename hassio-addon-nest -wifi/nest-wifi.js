@@ -4,6 +4,12 @@ const cron = require('/usr/src/app/node_modules/node-cron');
 
 async function getInfos(googleWifiApi) {
   const groups = await googleWifiApi.getGroups();
+  const groupsStatus = await googleWifiApi.getGroupStatus(groups.groups[0].id);
+  groups.groups[0].accessPoints.forEach(accessPoint => {
+    accessPoint.apState = groupsStatus.apStatuses.find(
+      apStatus => apStatus.apId === accessPoint.id,
+    )?.apState;
+  });
   try {
     await axios.post(
       'http://supervisor/core/api/states/sensor.nest_wifi_access_points',
