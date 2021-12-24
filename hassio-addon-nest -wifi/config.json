@@ -1,6 +1,6 @@
 {
   "name": "Nest Wifi",
-  "version": "0.0.18",
+  "version": "0.0.21",
   "boot": "auto",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "slug": "nest_wifi",
