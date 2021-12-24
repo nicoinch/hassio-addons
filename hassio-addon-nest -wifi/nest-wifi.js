@@ -24,6 +24,7 @@ async function getInfos(googleWifiApi) {
     console.log('Posted Nest Wifi to Hass');
   } catch (error) {
     console.log('Could not send sensor status to Home Assistant', error);
+    process.exit(1);
   }
 
   const devices = await googleWifiApi.getGroupDevices(groups.groups[0].id);
@@ -41,6 +42,7 @@ async function getInfos(googleWifiApi) {
     console.log('Posted Nest Wifi to Hass');
   } catch (error) {
     console.log('Could not send sensor status to Home Assistant', error);
+    process.exit(1);
   }
 }
 

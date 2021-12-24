@@ -5,4 +5,4 @@ cd /usr/src/app
 cp /data/options.json .
 
 npm install
-node index.js
+/usr/src/app/node_modules/.bin/forever index.js
