@@ -18,12 +18,12 @@ async function getAccessPointsInfo(googleWifiApi) {
     console.error('Could not get access points infos', error);
   }
 
-  try {
-    await axios.post(
-      'http://supervisor/core/api/states/sensor.nest_wifi_access_points',
+    groups.groups[0].accessPoints.forEach(accessPoint => {
+    try {await axios.post(
+      'http://supervisor/core/api/states/sensor.nest_wifi_access_points_' + accessPoint.accessPointSettings.accessPointOtherSettings.apName.toLowerCase().replace(/\s/g, '_'),
       {
-        state: groups.groups[0].accessPoints.length,
-        attributes: { data: groups.groups[0].accessPoints },
+        state: accessPoint.apState,
+        attributes: { data: accessPoint },
       },
       {
         headers: { Authorization: 'Bearer ' + process.env.SUPERVISOR_TOKEN },
@@ -36,8 +36,8 @@ async function getAccessPointsInfo(googleWifiApi) {
       error,
     );
     process.exit(1);
-  }
-
+  }});
+    
   return groups;
 }
 
