@@ -93,7 +93,15 @@ async function getSpeedTestResults(googleWifiApi, groups) {
           parseInt(speedTestResults.speedTestResults[0].receiveWanSpeedBps) /
             1000000
         ),
-        attributes: { data: speedTestResults.speedTestResults[0] },
+        attributes: {
+          data: speedTestResults.speedTestResults[0],
+          state_class: "measurement",
+          last_successful_update:
+            speedTestResults.speedTestResults[0].timestamp,
+          unit_of_measurement: "Mbps",
+          device_class: "battery",
+          friendly_name: "Nest download speed",
+        },
       },
       {
         headers: { Authorization: "Bearer " + process.env.SUPERVISOR_TOKEN },
@@ -106,7 +114,15 @@ async function getSpeedTestResults(googleWifiApi, groups) {
           parseInt(speedTestResults.speedTestResults[0].transmitWanSpeedBps) /
             1000000
         ),
-        attributes: { data: speedTestResults.speedTestResults[0] },
+        attributes: {
+          data: speedTestResults.speedTestResults[0],
+          state_class: "measurement",
+          last_successful_update:
+            speedTestResults.speedTestResults[0].timestamp,
+          unit_of_measurement: "Mbps",
+          device_class: "battery",
+          friendly_name: "Nest download speed",
+        },
       },
       {
         headers: { Authorization: "Bearer " + process.env.SUPERVISOR_TOKEN },
