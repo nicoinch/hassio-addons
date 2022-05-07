@@ -121,7 +121,7 @@ async function getSpeedTestResults(googleWifiApi, groups) {
             speedTestResults.speedTestResults[0].timestamp,
           unit_of_measurement: "Mbps",
           device_class: "battery",
-          friendly_name: "Nest download speed",
+          friendly_name: "Nest upload speed",
         },
       },
       {
