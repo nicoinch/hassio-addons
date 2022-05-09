@@ -27,7 +27,14 @@ async function getAccessPointsInfo(googleWifiApi) {
             .replace(/\s/g, "_"),
         {
           state: accessPoint.apState,
-          attributes: { data: accessPoint },
+          attributes: {
+            data: accessPoint,
+            last_successful_update:
+              accessPoint.accessPointProperties.lastSeenTime,
+            device_class: "router",
+            friendly_name:
+              accessPoint.accessPointSettings.accessPointOtherSettings.apName,
+          },
         },
         {
           headers: { Authorization: "Bearer " + process.env.SUPERVISOR_TOKEN },
