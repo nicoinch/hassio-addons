@@ -99,7 +99,7 @@ async function getSpeedTestResults(googleWifiApi, groups) {
           last_successful_update:
             speedTestResults.speedTestResults[0].timestamp,
           unit_of_measurement: "Mbps",
-          device_class: "battery",
+          device_class: "download",
           friendly_name: "Nest download speed",
         },
       },
@@ -120,7 +120,7 @@ async function getSpeedTestResults(googleWifiApi, groups) {
           last_successful_update:
             speedTestResults.speedTestResults[0].timestamp,
           unit_of_measurement: "Mbps",
-          device_class: "battery",
+          device_class: "upload",
           friendly_name: "Nest upload speed",
         },
       },
