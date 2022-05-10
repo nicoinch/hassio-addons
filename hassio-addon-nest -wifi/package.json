@@ -1,6 +1,6 @@
 {
   "name": "nest_wifi",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "Display Nest Wifi informations",
   "main": "index.js",
   "scripts": {

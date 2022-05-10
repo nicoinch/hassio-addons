@@ -65,8 +65,15 @@ async function getDevicesInfo(googleWifiApi, groups) {
     await axios.post(
       "http://supervisor/core/api/states/sensor.nest_wifi_devices",
       {
-        state: devices.stations.length,
-        attributes: { data: devices.stations },
+        state: devices.stations.filter((ap) => ap.connected).length,
+        attributes: {
+          data: devices.stations,
+          total_devices_count: devices.stations.length,
+          state_class: "measurement",
+          last_successful_update: new Date(),
+          device_class: "devices_count",
+          friendly_name: "Nest Wifi connected devices",
+        },
       },
       {
         headers: { Authorization: "Bearer " + process.env.SUPERVISOR_TOKEN },
