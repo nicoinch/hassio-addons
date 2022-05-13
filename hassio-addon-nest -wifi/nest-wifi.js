@@ -72,7 +72,8 @@ async function getDevicesInfo(googleWifiApi, groups) {
           state_class: "measurement",
           last_successful_update: new Date(),
           device_class: "devices_count",
-          friendly_name: "Nest Wifi connected devices",
+          friendly_name: "Nest Wifi devices",
+          icon: "mdi:devices",
         },
       },
       {
