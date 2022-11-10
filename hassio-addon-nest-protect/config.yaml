@@ -1,0 +1,21 @@
+name: Nest Protect
+version: 0.0.16
+slug: nest_protect
+description: "Nest Protect integration for Home Assistant"
+url: https://github.com/nicoinch/hassio-addons/tree/master/hassio-addon-nest-protect
+init: false
+hassio_api: true
+hassio_role: default
+homeassistant_api: true
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+options:
+  issueToken: https://accounts.google.com/o/oauth2/iframerpc?action=issueToken...
+  cookies: OCAK=TOMPYI3cCPAt...; SID=ogftnk...; HSID=ApXSR...; ...; SIDCC=AN0-TYt...
+schema:
+  issueToken: match(.*)
+  cookies: match(.*)
