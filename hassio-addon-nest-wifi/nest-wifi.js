@@ -113,9 +113,8 @@ async function getSpeedTestResults(googleWifiApi, groups) {
           state_class: 'measurement',
           last_successful_update:
             speedTestResults.speedTestResults[0].timestamp,
-          unit_of_measurement: 'Mbps',
-          device_class: 'download',
-          friendly_name: 'Nest download speed',
+          unit_of_measurement: 'Mbit/s',
+          friendly_name: 'Nest Wifi download speed',
         },
       },
       {
@@ -134,9 +133,8 @@ async function getSpeedTestResults(googleWifiApi, groups) {
           state_class: 'measurement',
           last_successful_update:
             speedTestResults.speedTestResults[0].timestamp,
-          unit_of_measurement: 'Mbps',
-          device_class: 'upload',
-          friendly_name: 'Nest upload speed',
+          unit_of_measurement: 'Mbit/s',
+          friendly_name: 'Nest Wifi upload speed',
         },
       },
       {

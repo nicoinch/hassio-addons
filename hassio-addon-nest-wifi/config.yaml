@@ -1,5 +1,5 @@
 name: Nest Wifi
-version: 0.0.59
+version: 0.0.60
 slug: nest_wifi
 description: "Nest Wifi integration for Home Assistant"
 url: https://github.com/nicoinch/hassio-addons/tree/master/hassio-addon-nest-wifi
