@@ -1,6 +1,6 @@
 {
   "name": "nest_protect",
-  "version": "0.0.16",
+  "version": "0.1.4",
   "description": "Display Nest Protect informations",
   "main": "index.js",
   "scripts": {

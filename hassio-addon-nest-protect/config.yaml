@@ -1,5 +1,5 @@
 name: Nest Protect
-version: 0.0.16
+version: 0.1.4
 slug: nest_protect
 description: "Nest Protect integration for Home Assistant"
 url: https://github.com/nicoinch/hassio-addons/tree/master/hassio-addon-nest-protect
