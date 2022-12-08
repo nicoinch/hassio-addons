@@ -7,7 +7,8 @@ WORKDIR /usr/src/app
 # Copy data for add-on
 COPY package.json .
 COPY index.js .
-COPY nest-protect.js .
+COPY google-assistant-proxy.js .
+COPY google-assistant-api.js .
 COPY run.sh /usr/src/app
 RUN chmod a+x /usr/src/app/run.sh
 
@@ -19,3 +20,5 @@ ARG BUILD_NAME
 ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
+
+EXPOSE 8085

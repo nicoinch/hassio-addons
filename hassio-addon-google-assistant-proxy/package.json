@@ -1,0 +1,19 @@
+{
+  "name": "google_assistant_proxy",
+  "version": "0.0.19",
+  "description": "Proxy requests to Google Asssitant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nicoinch",
+  "url": "https://github.com/nicoinch/hassio-addons/tree/master/hassio-addon-google-assistant-proxy",
+  "repository": "https://github.com/nicoinch/hassio-addons/tree/master/hassio-google-assistant-proxy",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.2",
+    "forever": "^4.0.1",
+    "google-assistant": "^0.7.0"
+  }
+}

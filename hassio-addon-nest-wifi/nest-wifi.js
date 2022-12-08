@@ -110,7 +110,7 @@ async function getSpeedTestResults(googleWifiApi, groups) {
         ),
         attributes: {
           data: speedTestResults.speedTestResults[0],
-          state_class: 'measurement',
+          device_class: 'data_rate',
           last_successful_update:
             speedTestResults.speedTestResults[0].timestamp,
           unit_of_measurement: 'Mbit/s',
@@ -131,6 +131,7 @@ async function getSpeedTestResults(googleWifiApi, groups) {
         attributes: {
           data: speedTestResults.speedTestResults[0],
           state_class: 'measurement',
+          device_class: 'data_rate',
           last_successful_update:
             speedTestResults.speedTestResults[0].timestamp,
           unit_of_measurement: 'Mbit/s',

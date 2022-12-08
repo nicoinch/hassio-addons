@@ -1,0 +1,19 @@
+{
+  "name": "enedis_power_cut",
+  "version": "0.0.24",
+  "description": "Get power cuts forecasts for your address",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nicoinch",
+  "url": "https://github.com/nicoinch/hassio-addons/tree/master/hassio-addon-enedis-power-cut",
+  "repository": "https://github.com/nicoinch/hassio-addons/tree/master/hassio-enedis-power-cut",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "forever": "^4.0.1",
+    "moment": "^2.26.0",
+    "node-cron": "^2.0.3"
+  }
+}

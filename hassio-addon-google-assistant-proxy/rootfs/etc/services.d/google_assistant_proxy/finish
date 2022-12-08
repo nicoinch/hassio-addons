@@ -1,8 +1,8 @@
 #!/command/with-contenv bashio
 # ==============================================================================
 if [[ "${1}" -ne 0 ]] && [[ "${1}" -ne 256 ]]; then
-  bashio::log.warning "nest protect crashed, halting add-on"
+  bashio::log.warning "Google Assistant Proxy crashed, halting add-on"
   /run/s6/basedir/bin/halt
 fi
 
-bashio::log.info "nest protect stopped, restarting..."
+bashio::log.info "Google Assistant Proxy stopped, restarting..."

@@ -1,6 +1,6 @@
 #!/command/with-contenv bashio
 # ==============================================================================
 
-bashio::log.info "Starting nest protect..."
+bashio::log.info "Starting Enedis Power Cut..."
 
 exec /usr/src/app/run.sh
