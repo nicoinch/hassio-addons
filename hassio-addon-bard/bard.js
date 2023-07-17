@@ -17,7 +17,7 @@ app.post("/bard", express.json(), async (req, res) => {
   }
 });
 
-module.exports = async (options) => {
+export const bard = async (options) => {
   if (!options.cookieKey) {
     console.error("No options.cookieKey provided");
     return;
