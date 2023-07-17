@@ -4,17 +4,21 @@ import express from "express";
 const port = 8000;
 
 const app = express();
+app.use(express.json());
 
 app.post("/bard", async (req, res) => {
   console.log("POST /bard", req.body);
   try {
-    console.log("Asking AI ", req.body);
-    const answer = await askAI(req.body);
-    res.json({ answer });
+    if (req.body?.prompt) {
+      console.log("Asking AI ", req.body);
+      const answer = await askAI(req.body.prompt);
+      res.json({ answer });
+    } else {
+      res.status(400).json({ error: "No prompt provided" });
+    }
   } catch (error) {
     console.error("Error while asking AI", error);
     res.status(500).json({ error });
-    return;
   }
 });
 
