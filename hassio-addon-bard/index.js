@@ -1,5 +1,5 @@
-const bard = require("/usr/src/app/bard");
-const options = require("./options");
+import bard from "/usr/src/app/bard";
+import options from "./options";
 
 (async () => {
   await bard(options);

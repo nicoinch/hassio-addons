@@ -1,7 +1,6 @@
-const Bard = require("bard-ai");
-const express = require("express");
+import Bard, { askAI } from "bard-ai";
+import express from "express";
 
-const askAI = Bard.askAI;
 const port = 8000;
 
 const app = express();
