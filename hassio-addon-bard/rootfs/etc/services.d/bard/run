@@ -1,0 +1,6 @@
+#!/command/with-contenv bashio
+# ==============================================================================
+
+bashio::log.info "Starting Bard..."
+
+exec /usr/src/app/run.sh
