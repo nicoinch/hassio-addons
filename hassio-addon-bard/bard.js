@@ -10,7 +10,7 @@ app.post("/bard", async (req, res) => {
   console.log("POST /bard", req.body);
   try {
     if (req.body?.prompt) {
-      console.log("Asking AI ", req.body);
+      console.log("Asking AI ", req.body.prompt);
       const answer = await askAI(req.body.prompt);
       res.json({ answer });
     } else {
