@@ -8,6 +8,7 @@ const app = express();
 app.post("/bard", express.json(), async (req, res) => {
   console.log("POST /bard", req.body);
   try {
+    console.log("Asking AI ", req.body);
     const answer = await askAI(req.body);
     res.json({ answer });
   } catch (error) {
@@ -27,6 +28,6 @@ export const bard = async (options) => {
   await Bard.init(COOKIE_KEY);
 
   app.listen(port, () => {
-    console.log(`Ring Bridge is running on port ${port}.`);
+    console.log(`Bard is running on port ${port}.`);
   });
 };
