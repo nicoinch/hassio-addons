@@ -5,7 +5,7 @@ const port = 8000;
 
 const app = express();
 
-app.post("/bard", express.json(), async (req, res) => {
+app.post("/bard", async (req, res) => {
   console.log("POST /bard", req.body);
   try {
     console.log("Asking AI ", req.body);
