@@ -9,7 +9,7 @@ app.post("/bard", express.json(), async (req, res) => {
   console.log("POST /bard", req.body);
   try {
     const answer = await askAI(req.body);
-    res.json(answer);
+    res.json({ answer });
   } catch (error) {
     console.error("Error while asking AI", error);
     res.status(500).json({ error });
