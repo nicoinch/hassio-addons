@@ -1,5 +1,5 @@
 name: Bard
-version: 0.0.6
+version: 0.0.7
 slug: bard
 description: "Bard integration for Home Assistant"
 url: https://github.com/nicoinch/hassio-addons/tree/master/hassio-addon-bard
