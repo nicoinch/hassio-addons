@@ -1,6 +1,6 @@
 {
   "name": "bard",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Bard service for Home Assistant",
   "main": "index.js",
   "type": "module",
