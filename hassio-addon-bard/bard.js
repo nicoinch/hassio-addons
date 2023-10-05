@@ -1,7 +1,8 @@
-import Bard, { askAI } from "bard-ai";
+import Bard from "bard-ai";
 import express from "express";
 
 const port = 8000;
+let myBard;
 
 const app = express();
 app.use(express.json());
@@ -11,7 +12,7 @@ app.post("/bard", async (req, res) => {
   try {
     if (req.body?.prompt) {
       console.log("Asking AI ", req.body.prompt);
-      const answer = await askAI(req.body.prompt);
+      const answer = await myBard.ask(req.body.prompt);
       res.json({ answer });
     } else {
       res.status(400).json({ error: "No prompt provided" });
@@ -29,7 +30,7 @@ export const bard = async (options) => {
   }
   const COOKIE_KEY = options.cookieKey;
 
-  await Bard.init(COOKIE_KEY);
+  myBard = new Bard(COOKIE_KEY);
 
   app.listen(port, () => {
     console.log(`Bard is running on port ${port}.`);
